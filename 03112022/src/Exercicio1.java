@@ -1,9 +1,9 @@
 import javax.swing.JOptionPane;
 
 /**
- * @apiNote Implementar um sistema que lê um nome e apresente o nome em
- *          maiúsculo, minúsculo, seu tamanho sem os espaços em branco e o
- *          tamanho do primeiro nome.
+ * Implementar um sistema que lê um nome e apresente o nome em
+ * maiúsculo, minúsculo, seu tamanho sem os espaços em branco e o
+ * tamanho do primeiro nome.
  * 
  */
 public class Exercicio1 {
