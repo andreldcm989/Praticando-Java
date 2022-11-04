@@ -1,12 +1,11 @@
 import javax.swing.JOptionPane;
 
 /**
- * Criar um sistema que receba um numero entre 0 e 9999 e retorne
- * Número
- * Unidade
- * Dezena
- * Centena e
- * Milhar
+ * Criar um sistema que receba um numero entre 0 e 9999 e retorne:
+ * Unidade;
+ * Dezena;
+ * Centena;
+ * Milhar.
  */
 
 public class Exercicio2 {
