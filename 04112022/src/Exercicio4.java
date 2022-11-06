@@ -26,16 +26,22 @@ public class Exercicio4 {
             if (i == texto.length() - 1) {
                 resultado.add(letra);
             }
-
         }
+        System.out.println(resultado.contains("A"));
+        StringBuilder saida = new StringBuilder("[ ");
+
         for (String s : resultado) {
             if (s.length() > 9) {
-                System.out.println(s.substring(0, 1) + "9");
-                System.out.println(s.substring(0, 1) + (s.length() - 9));
+                saida.append((s.substring(0, 1) + "9, "));
+                saida.append((s.substring(0, 1) + (s.length() - 9) + ", "));
             } else {
-                System.out.println(s.substring(0, 1) + s.length());
+                saida.append(s.substring(0, 1) + s.length() + ", ");
             }
         }
+
+        saida.deleteCharAt(saida.lastIndexOf(","));
+        saida.append("]");
+        System.out.println(saida);
 
     }
 }
