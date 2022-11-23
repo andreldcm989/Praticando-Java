@@ -18,20 +18,19 @@ public class App {
         List<Pessoa> pessoas = new ArrayList<>();
         pessoas.addAll(Arrays.asList(p1, p2, p3, p4, p5, p6));
         System.out.println("Ordem de inserção:");
-        for (Pessoa pessoa : pessoas) {
-            System.out.println(pessoa);
-        }
+        pessoas.forEach(curso -> System.out.println(curso));
         System.out.println("-------------------------");
 
         System.out.println("Ordem natural implementada na classe Pessoa:");
         Collections.sort(pessoas);
+
         for (Pessoa pessoa : pessoas) {
             System.out.println(pessoa);
         }
 
         System.out.println("---------------------------");
         System.out.println("Por idade:");
-        Collections.sort(pessoas, new Comparator<Pessoa>() {
+        pessoas.sort(new Comparator<Pessoa>() {
             @Override
             public int compare(Pessoa p1, Pessoa p2) {
                 return Long.compare(p1.getIdade(), p2.getIdade());
@@ -40,5 +39,11 @@ public class App {
         for (Pessoa pessoa : pessoas) {
             System.out.println(pessoa);
         }
+
+        System.out.println("------------------------------");
+        System.out.println("Por idade DECRESCENTE, com LAMBDA:");
+        pessoas.sort((o1, o2) -> Long.compare(o2.getIdade(), o1.getIdade()));
+        pessoas.forEach(p -> System.out.println(p));
+
     }
 }
