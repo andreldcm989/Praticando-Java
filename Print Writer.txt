@@ -1,0 +1,4 @@
+Este é um arquivo criado com PrintWriter.
+O resultado é exatamente o mesmo que quando usei PrintStream.
+PrintWriter é um Writer.
+by André.

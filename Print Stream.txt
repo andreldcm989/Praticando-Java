@@ -1,0 +1,3 @@
+Este é um arquivo criado com PrintStream.
+PrintStrem é um FileOutputStream, que é um OutputStream.
+André.
