@@ -8,17 +8,22 @@ import java.io.OutputStreamWriter;
 
 public class Entrada {
     public static void main(String[] args) throws IOException {
+        // ler um arquivo de texto
         FileInputStream fis = new FileInputStream("input.txt");
         InputStreamReader isr = new InputStreamReader(fis);
+        BufferedReader br = new BufferedReader(isr);
 
+        // escrever um arquivo de texto
         FileOutputStream fos = new FileOutputStream("output.txt");
         OutputStreamWriter osw = new OutputStreamWriter(fos);
-
-        BufferedReader br = new BufferedReader(isr);
         BufferedWriter bw = new BufferedWriter(osw);
 
+        // lê uma linha do arquivo de entrada
         String line = br.readLine();
-        while (line != null) {// se colocar direto o br.readLine como condição do while, ele perde uma linha
+
+        // enquanto a linha do arquivo de entrada não for nulo, escreve essa linha no
+        // arquivo novo
+        while (line != null) {
             bw.write(line);
             bw.newLine();
             line = br.readLine();
