@@ -1,0 +1,5 @@
+Nome: André Cruz | CPF: 09889702344 | Nascimento: 01/22/80 | Cidade: Uberlândia | Idade: 42 anos;
+Nome: João Silva | CPF: 77689000987 | Nascimento: 07/10/60 | Cidade: São Paulo | Idade: 62 anos;
+Nome: Maria Dora | CPF: 88790984322 | Nascimento: 10/01/90 | Cidade: São Paulo | Idade: 32 anos;
+Nome: Pedro sampaio | CPF: 00933245677 | Nascimento: 08/31/99 | Cidade: Uberlândia | Idade: 23 anos;
+Nome: Osmar Mota | CPF: 00034588990 | Nascimento: 08/27/77 | Cidade: Uberlândia | Idade: 45 anos;
