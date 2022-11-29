@@ -1,9 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
+
+    public static final long serialVersionUID = 1L;
 
     private static int TotalPessoas = 0;
 
@@ -15,7 +18,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, long cpf, LocalDate nascimento, String cidade) {
+    public Pessoa(String nome, Long cpf, LocalDate nascimento, String cidade) {
         this.nome = nome;
         this.cpf = cpf;
         this.nascimento = nascimento;
@@ -35,7 +38,7 @@ public class Pessoa {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 

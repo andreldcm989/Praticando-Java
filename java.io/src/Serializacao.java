@@ -3,7 +3,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Serialização {
+public class Serializacao {
     public static void main(String[] args) throws Exception {
         String nome = "André Cruz";
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("serialize.bin"));
