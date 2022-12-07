@@ -1,9 +1,12 @@
 package com.tdd.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Reserva {
+
+    private static final DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private int codigo;
     private Quarto quarto;
@@ -15,11 +18,11 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int codigo, Quarto quarto, LocalDate checkIn, LocalDate checkOut, int totalHospedes) {
+    public Reserva(int codigo, Quarto quarto, String checkIn, String checkOut, int totalHospedes) {
         this.codigo = codigo;
         this.quarto = quarto;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+        this.checkIn = LocalDate.parse(checkIn, formato);
+        this.checkOut = LocalDate.parse(checkOut, formato);
         this.totalHospedes = totalHospedes;
         calculaDiarias();
     }

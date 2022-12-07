@@ -1,10 +1,9 @@
 package com.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -14,12 +13,13 @@ import org.junit.jupiter.api.Test;
 
 import com.tdd.model.Quarto;
 import com.tdd.model.Reserva;
+import com.tdd.service.ReservaService;
 
 public class ReservaTeste {
     private Quarto quarto;
     private Reserva reserva;
+    private ReservaService reservaService = new ReservaService();
     private static Set<Quarto> quartos = new HashSet<>();
-    private DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     @BeforeEach
     public void cargaInicialQuartos() throws Exception {
@@ -43,8 +43,8 @@ public class ReservaTeste {
             int codigo = linha.nextInt();
             int numeroQuarto = linha.nextInt();
             Quarto quarto = quartos.stream().filter(q -> q.getNumero() == numeroQuarto).findFirst().get();
-            LocalDate checkIn = LocalDate.parse(linha.next(), formato);
-            LocalDate checkOut = LocalDate.parse(linha.next(), formato);
+            String checkIn = linha.next();
+            String checkOut = linha.next();
             reserva = new Reserva(codigo, quarto, checkIn, checkOut, codigo);
             quarto.salvarReserva(reserva);
         }
@@ -68,7 +68,16 @@ public class ReservaTeste {
     public void qtdeReservas101() {
         int tamanho = quartos.stream().filter(q -> q.getNumero() == 101).mapToInt(q -> q.getReservas().size())
                 .findFirst().getAsInt();
-        assertEquals(43, tamanho);
+        assertEquals(4, tamanho);
+    }
 
+    @Test
+    public void verificaCheckInAntesCheckOut() {
+        try {
+            reservaService.reservarQuarto("12/01/2023", "08/01/2023");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("A data de check-out deve ser um dia após o check-in.", e.getMessage());
+        }
     }
 }
