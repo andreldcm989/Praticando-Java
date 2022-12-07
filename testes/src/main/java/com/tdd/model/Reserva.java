@@ -1,6 +1,7 @@
 package com.tdd.model;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Reserva {
 
@@ -20,6 +21,7 @@ public class Reserva {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.totalHospedes = totalHospedes;
+        calculaDiarias();
     }
 
     public int getCodigo() {
@@ -44,6 +46,10 @@ public class Reserva {
 
     public double getValorTotalDiárias() {
         return valorTotalDiárias;
+    }
+
+    public void calculaDiarias() {
+        valorTotalDiárias = quarto.getValorDiaria() * ChronoUnit.DAYS.between(checkIn, checkOut);
     }
 
     @Override
